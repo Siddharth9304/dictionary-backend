@@ -7,11 +7,11 @@ router.post('/register', async (req, res) => {
   try {
     const { username, name, password, classCode } = req.body;
 
-    if(!classCode) 
-      return res.status(400).json({ message: "Class Code is not given"});
+    // if(!classCode) 
+    //   return res.status(400).json({ message: "Class Code is not given"});
   
-    if(classCode !== "wewillmakeit")
-      return res.status(400).json({ code:12, message: "Wrong class code given" });
+    // if(classCode !== "wewillmakeit")
+    //   return res.status(400).json({ code:12, message: "Wrong class code given" });
 
     const existingUser = await User.findOne({ username });
     if (existingUser) return res.status(400).json({ message: 'Username taken' });
