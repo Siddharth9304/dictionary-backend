@@ -79,6 +79,7 @@ router.post('/speech', async (req, res) => {
         const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
         res.json({ audioData: base64Audio });
     } catch (err) {
+        console.log(err.message);
         res.status(500).json({ error: err.message });
     }
 });
